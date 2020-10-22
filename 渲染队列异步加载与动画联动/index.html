@@ -27,11 +27,31 @@
             // app.style.display = 'block'
             // let appHeight =  app.clientHeight  //清空渲染队列 回流重绘
             // app.style.transform = 'translateX(200px)'
+            
+            //ps:
+            //offsetTop、offsetLeft、offsetWidth、offsetHeight
+            //scrollTop、scrollLeft、scrollWidth、scrollHeight
+            //clientTop、clientLeft、clientWidth、clientHeight
+            //getComputedStyle()
+            //getBoundingClientRect
+            //以上属性和方法都需要返回最新的布局信息，因此浏览器不得不清空队列，触发回流重绘来返回正确的值。
+            //因此，我们在修改样式的时候，最好避免使用上面列出的属性，他们都会刷新渲染队列。如果要使用它们，最好将值缓存起来。
+            
+            //减少重绘回流
+            //1.属性值一次修改 改class、合并修改属性值
+            //2.修改前隐藏dom，修改后再显示
+            //3.将值缓存起来(以上的属性)
+            //4.脱离文档流
+            //5.css3硬件加速
 
             // app.style.display = 'block'
             // setTimeout(function () {                //异步操作
             //     app.style.transform = 'translateX(200px)'
             // },1)
+
+            //ps：
+            //浏览器线程
+            //
 
         })
     </script>
