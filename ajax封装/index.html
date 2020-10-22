@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <button id="btn">点我获取数据</button>
+    <script>
+        let box = document.getElementById('box'),
+            btn = document.getElementById('btn')
+
+        function Ajax(option) {
+            const p = new Promise(function (res, rej) {
+                let xml = new XMLHttpRequest()
+                console.log(xml);
+                xml.open(option.method, option.url)
+                xml.onreadystatechange = function () {
+                    console.log(this.readyState);
+                    console.log(this.status);
+                    if (this.readyState !== 4) {
+                        return
+                    }
+
+                    if (this.status == 200) {
+                        res(this.response)
+                    } else {
+                        rej(this.response)
+                    }
+
+                    //readyState为请求过程的状态值 0=>初始化 1=>载入 2=>载入完成 3=>解析 4=>完成
+                    //status为响应的HTTP状态码 200 404 500 40
+                }
+                xml.responseType = 'json'
+                xml.setRequestHeader('Accept','application/json')
+                xml.send()
+            })
+
+            return p
+        }
+
+        btn.addEventListener('click',function(){
+            Ajax({
+                url:'http://10.9.0.50:9000/mock/56/getForm',
+                method:'post'
+            }).then(res=>{
+                box.innerHTML = JSON.stringify(res.data)
+            }).catch(res=>{
+                box.innerHTML = JSON.stringify(res.data)
+            })
+        })
+    </script>
+</body>
+
+</html>
