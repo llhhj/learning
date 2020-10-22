@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" name="" id="upfile" change='ReadExcel'>
+    <script>
+        function ReadExcel() {
+            var tempStr = "";
+            //得到文件路径的值
+            var filePath = document.getElementById("upfile").value;
+            //创建操作EXCEL应用程序的实例
+            var oXL = new ActiveXObject("Excel.application");
+            //打开指定路径的excel文件
+            var oWB = oXL.Workbooks.open(filePath);
+            oWB.worksheets(1).select();
+            var oSheet = oWB.ActiveSheet;
+            var nRows = oSheet.usedrange.rows.count;
+            var nColumns = oSheet.usedrange.columns.count;
+            for (var i = 1; i < nRows; i++) {
+                for (var j = 0; j < nColumns; j++) {
+                    if (oSheet.Cells(i + 1, j + 1).value == undefined) {
+                        console.log(" ");
+                    } else {
+                        console.log(oSheet.Cells(i + 1, j + 1).value);
+                    }
+                }
+            }
+            //退出操作excel的实例对象
+            oXL.Application.Quit();
+            //手动调用垃圾收集器
+            CollectGarbage();
+        }
+    </script>
+</body>
+
+</html>

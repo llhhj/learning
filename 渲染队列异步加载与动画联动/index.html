@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app{
+            /* display: none; */
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transition: all 1s;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <input type="button" id="btn" value="点击动画">
+    <script>
+        let app = document.getElementById('app'),btn = document.getElementById('btn')
+        btn.addEventListener('click',function () {
+        //     app.style.display = 'block'
+        //     app.style.transform = 'translateX(200px)'// 在同一个渲染队列中，同时进行渲染
+
+            // app.style.display = 'block'
+            // let appHeight =  app.clientHeight  //清空渲染队列 回流重绘
+            // app.style.transform = 'translateX(200px)'
+
+            // app.style.display = 'block'
+            // setTimeout(function () {                //异步操作
+            //     app.style.transform = 'translateX(200px)'
+            // },1)
+
+        })
+    </script>
+</body>
+</html>
