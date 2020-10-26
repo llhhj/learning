@@ -31,6 +31,11 @@ export default {
       let self = this
       self.decryptStr = rsaDecrypt(self.encryptStr)
     }
+  },
+  mounted(){
+    console.log(new Date(1671379199999));
+    console.log(new Date());
+    console.log(new Date()>new Date(1671379199999));
   }
 }
 </script>
