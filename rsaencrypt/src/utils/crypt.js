@@ -1,5 +1,4 @@
 const { JSEncrypt } = require('jsencrypt');
-import { encode, decode } from 'js-base64';
 var JPass = require('jpass').JPass;
  
 
