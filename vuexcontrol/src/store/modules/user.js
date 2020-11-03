@@ -12,7 +12,10 @@ const user = {
     },
     action:{
         login({commit,dispatch},userInfo){
-            
+            return Promise((res,rej)=>{
+                let a = 1
+                res(a)
+            })
         }
     }
 }

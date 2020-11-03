@@ -5,8 +5,8 @@ function timeout(ms) {
     })
 }
 
-// timeout(1000).then(v=>{
-//     console.log(v); //异步执行
-// })
+timeout(2000).then(v=>{
+    console.log(v); //异步执行
+})
 
 console.log(2); 
