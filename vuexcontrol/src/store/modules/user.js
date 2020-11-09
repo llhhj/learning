@@ -14,7 +14,7 @@ const user = {
         login({commit,dispatch},userInfo){
             return Promise((res,rej)=>{
                 let a = 1
-                res(a)
+                res(a)  //异步传参用
             })
         }
     }
