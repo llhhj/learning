@@ -1,8 +1,8 @@
-const getter = {
-    token: status => status.user.token,
-    userName: function (status, getter) {
-        return getter.token.subString(1, 4)
+const getters = {
+    token: state => state.user.token,
+    userName: function (state, getters) {
+        return getters.token?getters.token.subString(1, 4):''
     }
 }
 
-export default getter
+export default getters
