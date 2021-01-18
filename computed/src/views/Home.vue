@@ -25,7 +25,7 @@ export default {
   },
   computed:{
     chartData(){
-      console.log(1);
+      // console.log(1);
       return {
         type: this.type,
         zoneCoding: this.zoneCoding
@@ -33,7 +33,20 @@ export default {
     }
   },
   watch:{
-    chartData(value){
+    chartData:{
+      handler(value){
+        this.change(value)
+      }
+    },
+    type: {
+      handler(value){
+        this.change(value)
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    change(value){
       console.log(value);
     }
   }
