@@ -1,0 +1,11 @@
+[
+    {
+        "description" : "moco start",
+        "request" : {
+            "uri" : "/hello"
+        },
+        "response" : {
+            "text" : "Hello World"
+        }
+    }
+]
