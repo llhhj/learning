@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Layout from "@/components/Layout/AppHeader.vue"
+import Layout from '../components/Layout/Layout';
 
 Vue.use(VueRouter)
 
@@ -11,14 +11,13 @@ const routes = [
     name: 'Home',
     component: Layout,
     children:[{
-      path: 'home',
-      name: 'Home',
+      path: '/home',
       component: Home
-    },{
-      path: 'about',
-      name: 'About',
-      component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     }]
+  },{
+    path: '/about',
+    name: 'About',
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
 
