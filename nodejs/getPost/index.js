@@ -12,7 +12,7 @@ http.createServer((req,res)=>{
           res.statusCode = 200
           res.end()
           break;
-        case 'GET':
+        case 'GET':  
           let data = JSON.stringify(items);
           res.write(data)
           res.end()
@@ -23,6 +23,7 @@ http.createServer((req,res)=>{
             item += chunk
           })
           req.on('end',()=>{
+
             item = JSON.parse(item);
             items.push(item)
 
