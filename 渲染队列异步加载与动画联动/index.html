@@ -13,11 +13,20 @@
             transition: all 1s;
             display: none;
         }
+        .s{
+            line-height: 1;
+            overflow: hidden;
+            display: inline-block;
+            position: relative;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
     <div id="app"></div>
     <input type="button" id="btn" value="点击动画">
+    <span class="s">123</span>
     <script>
         let app = document.getElementById('app'),btn = document.getElementById('btn')
         btn.addEventListener('click',function () {
@@ -44,10 +53,10 @@
             //4.脱离文档流
             //5.css3硬件加速
 
-            // app.style.display = 'block'
-            // setTimeout(function () {                //异步操作
-            //     app.style.transform = 'translateX(200px)'
-            // },1)
+            app.style.display = 'block'
+            setTimeout(function () {                //异步操作
+                app.style.transform = 'translateX(200px)'
+            },1)
 
             //ps：
             //浏览器线程
