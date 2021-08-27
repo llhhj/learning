@@ -11,6 +11,8 @@
 // 输出: 1 2 
 // 解释: 路径 1→3→5→2→1 可以拿到最多价值的礼物
 
+
+
 ((arr) => {
     let m = arr.length,n = arr[0].length
     let step = m + n -1 //步数
@@ -22,7 +24,7 @@
         dp[0][i] = dp[0][i-1] + arr[0][i]
     }
     for(let i = 1; i < m; i++ ) {
-        dp[i][0] = dp[i-1][0] + arr[i][0];
+        dp[i][0] = dp[i-1][0] + arr[i][0]; 
     }
 
     for(let i = 1; i < m; i++) {
@@ -30,5 +32,4 @@
             dp[i][j] = Math.max(dp[i-1][j],dp[i][j-1])+arr[i][j]
         }
     }
-    console.log(dp[m-1][n-1])
 })([[ 1, 3, 1 ] , [ 1 ,5, 1 ] , [ 4 ,2, 1]])

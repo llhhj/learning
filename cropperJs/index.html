@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link href="https://cdn.bootcdn.net/ajax/libs/cropperjs/1.5.12/cropper.css" rel="stylesheet"> -->
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/cropperjs/1.5.12/cropper.js"></script>1 -->
+    <!-- <link href="https://cdn.bootcdn.net/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet"> -->
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script> -->
+    <script src="./browser.min.js"></script>
+    <script src="./polyfill.min.js"></script>
+    <link rel="stylesheet" href="./cropper.min.css">
+    <script src="./cropper.min.js" ></script>
+    <style>
+        img {
+            display: block;
+            max-width: 100%;
+        }
+        .container {
+            width: 400px
+        }
+        #preview {
+            width: 400px;
+            height: 300px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img style="display: block;max-width: 100%" src="./Koala.jpg" id="img" alt="">
+        <button id="reset">重置</button>
+        <button id="getData">getData</button>
+    </div>
+    <div id="preview"></div>
+    <script>
+        var img = document.getElementById('img')
+        var pre = document.getElementById('preview')
+        var reset = document.getElementById('reset')
+        var getData = document.getElementById('getData')
+
+        var c = new Cropper(img,{
+            aspectRatio: 16/9,
+            preview: pre
+        });
+        // console.log(c,'c')
+        reset.addEventListener('click',function(){
+            c.reset()
+        })
+        getData.addEventListener('click',function(){
+
+            var data = c.getCroppedCanvas()
+            // console.log(data)
+        })
+    </script>
+</body>
+</html>

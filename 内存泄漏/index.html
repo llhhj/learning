@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button type="" onclick="onClick()">tianjia</button>
+    <script>
+    //1.闭包
+    function fn(){
+        let a = new Array(99999)
+        
+        function fn2(){
+            let c = [1,2,3]
+        }
+
+        fn2()
+        return a
+    }
+
+    let res = []
+    function onClick(){
+        res.push(fn())
+    }
+    //2.全局变量
+    //3.控制台打印
+    //4.定时器    
+
+
+    </script>
+</body>
+</html>
